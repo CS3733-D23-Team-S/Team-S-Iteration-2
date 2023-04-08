@@ -42,15 +42,14 @@ public class ProductDetailsController {
     addCart.setOnMouseClicked(
         event -> {
           try {
-            cart.getTheCart()
-                .get(HomeController.cartID)
-                .setQuantity(
+            currentFood.setQuantity(
                     Integer.parseInt(quantity.getText())); // needs bounds if non int entered
 
-            cart.getTheCart()
-                .get(HomeController.cartID)
-                .setNote(request.getText()); // bounds for if non string entered
-            System.out.println(request.getText());
+            currentFood.setNote(request.getText()); // bounds for if non string entered
+
+            cart.addFoodItem(currentFood);
+
+            Navigation.navigate(Screen.MEAL_DELIVERY1);
 
           } catch (Exception e) {
             e.printStackTrace();
@@ -65,7 +64,6 @@ public class ProductDetailsController {
     foodNamer();
     foodDescription();
     foodPrice();
-    addCart.setOnMouseClicked(event -> Navigation.navigate(Screen.MEAL_DELIVERY1));
   }
 
   public void count(String x) {
