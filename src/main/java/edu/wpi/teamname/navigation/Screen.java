@@ -17,8 +17,9 @@ public enum Screen {
   PATHFINDING("views/Pathfinding.fxml"),
   SIGNAGE_PAGE("edu/wpi/teamname/views/SignagePage.fxml"),
   ORDER_CONFIRMATION("views/OrderConfirmation.fxml"),
-  CSV_MANAGE("views/CSVPage.fxml");
-  ;
+  CSV_MANAGE("views/CSVPage.fxml"),
+
+  SUBMITTED_MEALS("views/ServiceRequestPages/SubmittedMeals.fxml");
 
   private final String filename;
 

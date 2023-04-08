@@ -18,7 +18,9 @@ public class FoodDAOImpl implements FoodDAO_I {
   private dbConnection connection = dbConnection.getInstance();
   protected static final String foodsTable = "hospitaldb" + "." + "foods";
 
-  private FoodDAOImpl() {}
+  private FoodDAOImpl() {
+    initializeDAO();
+  }
 
   public static synchronized FoodDAOImpl getInstance() {
     if (single_instance == null) single_instance = new FoodDAOImpl();
@@ -310,5 +312,54 @@ public class FoodDAOImpl implements FoodDAO_I {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  public void initializeDAO() {
+    Food Pizza =
+        new Food(
+            1,
+            "Pizza",
+            "Entree",
+            10,
+            "American",
+            10,
+            "Bread with sauce and cheese on it",
+            1,
+            false,
+            "image",
+            20,
+            " ",
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false);
+    Food Burger =
+        new Food(
+            2,
+            "Burger",
+            "Entree",
+            10,
+            "American",
+            12,
+            "Unhealthy",
+            1,
+            false,
+            "image",
+            14,
+            " ",
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false);
   }
 }

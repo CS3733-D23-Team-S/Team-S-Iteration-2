@@ -31,7 +31,7 @@ public class OrderDetailsController {
     addedOrder();
     // multSelectedFood();
     back2.setOnMouseClicked(event -> Navigation.navigate(Screen.MEAL_DELIVERY1));
-    submit.setOnMouseClicked(event -> Navigation.navigate(Screen.ORDER_CONFIRMATION));
+    //submit.setOnMouseClicked(event -> Navigation.navigate(Screen.SUBMITTED_MEALS));
 
     java.sql.Date d = new java.sql.Date(2023, 4, 6);
     java.sql.Time t = new java.sql.Time(11, 35, 45);
@@ -86,6 +86,7 @@ public class OrderDetailsController {
       newItemName.setStyle("-fx-text-fill: white; -fx-font-size: 18px;");
 
       newItemQuantity.setText(String.valueOf(aFood.getQuantity()));
+      System.out.println(aFood.getQuantity());
       newItemQuantity.setStyle("-fx-text-fill: white; -fx-font-size: 18px;");
 
       newItemPrice.setText(String.valueOf(aFood.getFoodPrice()));
@@ -93,6 +94,8 @@ public class OrderDetailsController {
 
       newItemRequest.setText(String.valueOf(aFood.getNote()));
       newItemRequest.setStyle("-fx-text-fill: white; -fx-font-size: 18px;");
+
+
 
       orderVBox.getChildren().add(newRow);
       newRow.getChildren().add(newItemName);
