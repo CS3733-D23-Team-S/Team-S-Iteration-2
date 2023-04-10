@@ -33,8 +33,6 @@ public class MealDeliveryController {
   @FXML MFXButton apply;
   @FXML MFXButton clearButton;
 
-
-
   @FXML private FoodDAOImpl foodDAO = FoodDAOImpl.getInstance();
   @FXML private FoodDeliveryDAOImp foodel = FoodDeliveryDAOImp.getInstance();
 
