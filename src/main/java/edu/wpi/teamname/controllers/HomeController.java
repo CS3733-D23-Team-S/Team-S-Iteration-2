@@ -22,8 +22,6 @@ public class HomeController {
 
   @FXML MFXButton logoutButton;
 
-  @FXML ButtonBar buttonBar;
-
   @FXML MenuButton app;
   @FXML Button buttonBarPathfinding;
   @FXML Button buttonBarReserveRoom;
