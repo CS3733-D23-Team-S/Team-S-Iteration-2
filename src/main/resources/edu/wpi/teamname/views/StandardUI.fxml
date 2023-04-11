@@ -42,7 +42,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
          <children>
-            <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="usericon" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/usericon.png" />
                </image>
@@ -89,7 +89,7 @@
                   <Insets bottom="30.0" right="30.0" />
                </VBox.margin>
             </MFXButton>
-            <MFXButton fx:id="navigationbutton1" alignment="TOP_LEFT" prefWidth="200.0" style="-fx-background-color: #122E59;" text="Signage" textFill="WHITE">
+            <MFXButton fx:id="signagebutton" alignment="TOP_LEFT" prefWidth="200.0" style="-fx-background-color: #122E59;" text="Signage" textFill="WHITE">
                <font>
                   <Font name="Open Sans Bold" size="18.0" />
                </font>
@@ -129,7 +129,7 @@
                   <Insets right="150.0" top="250.0" />
                </VBox.margin>
             </ImageView>
-            <ImageView fx:id="backicon1" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="exiticon" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/exiticon.png" />
                </image>
