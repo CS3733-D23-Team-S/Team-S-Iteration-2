@@ -19,7 +19,7 @@
 
                </image>
             </ImageView>
-            <Pane prefHeight="900.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF; -fx-opacity: 0.6;">
+            <Pane prefHeight="900.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF; -fx-opacity: 0.8;">
                <children>
                   <ImageView fx:id="helpIcon" fitHeight="47.0" fitWidth="47.0" layoutX="33.0" layoutY="838.0" onMouseClicked="#goToHelpPage" pickOnBounds="true" preserveRatio="true" style="-fx-image: 10;">
 
