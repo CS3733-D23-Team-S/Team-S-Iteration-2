@@ -2,6 +2,7 @@
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -70,6 +71,11 @@
                      <font>
                         <Font size="24.0" />
                      </font></MFXButton>
+                  <ImageView fx:id="exitIcon" fitHeight="70.0" fitWidth="70.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../../Desktop/SoftwareEngineeringCS3733/exiticon.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </children>
