@@ -72,20 +72,11 @@ public class MapEditorController {
     yCoordCol.setCellValueFactory(new PropertyValueFactory<>("yCoord"));
     floorCol.setCellValueFactory(new PropertyValueFactory<>("floor"));
     buildingCol.setCellValueFactory(new PropertyValueFactory<>("building"));
-    //    nodeTable.getColumns().add(0, ntNodeIDCol);
-    //    nodeTable.getColumns().add(1, xCoordCol);
-    //    nodeTable.getColumns().add(2, yCoordCol);
-    //    nodeTable.getColumns().add(3, floorCol);
-    //    nodeTable.getColumns().add(4, buildingCol);
 
     nodeTypeCol.setCellValueFactory(new PropertyValueFactory<>("nodeType"));
     shortNameCol.setCellValueFactory(new PropertyValueFactory<>("shortName"));
     longNameCol.setCellValueFactory(new PropertyValueFactory<>("longName"));
     recentMoveCol.setCellValueFactory(new PropertyValueFactory<>("mostRecentMove"));
-    //    locationTable.getColumns().add(0, nodeTypeCol);
-    //    locationTable.getColumns().add(1, shortNameCol);
-    //    locationTable.getColumns().add(2, longNameCol);
-    //    locationTable.getColumns().add(3, recentMoveCol);
 
     startNodeCol.setCellValueFactory(
         (edge) -> {
@@ -97,10 +88,6 @@ public class MapEditorController {
     mtNodeIDCol.setCellValueFactory(new PropertyValueFactory<>("nodeID"));
     locationCol.setCellValueFactory(new PropertyValueFactory<>("location"));
     datesCol.setCellValueFactory(new PropertyValueFactory<>("dates"));
-
-    //    moveTable.getColumns().add(0, mtNodeIDCol);
-    //    moveTable.getColumns().add(1, locationCol);
-    //    moveTable.getColumns().add(2, datesCol);
 
     createLists();
   }
