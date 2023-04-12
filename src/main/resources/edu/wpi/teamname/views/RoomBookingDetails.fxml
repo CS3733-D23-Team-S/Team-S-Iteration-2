@@ -5,6 +5,8 @@
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -14,9 +16,10 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.tableview2.cell.TextField2TableCell?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wpi.teamname.controllers.servicerequests.conferenceroom.RoomBookingDetailsController">
+<GridPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wpi.teamname.controllers.servicerequests.conferenceroom.RoomBookingDetailsController">
     <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="15.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="2.0" prefWidth="100.0" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="3.0" prefWidth="100.0" />
     </columnConstraints>
@@ -27,12 +30,12 @@
         <RowConstraints minHeight="10.0" percentHeight="7.0" prefHeight="30.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <TextField2TableCell prefHeight="63.0" prefWidth="771.0" text="Room Booking Confirmation" textFill="#1d3d94" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+        <TextField2TableCell prefHeight="63.0" prefWidth="771.0" text="Room Booking Confirmation" textFill="#1d3d94" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
             <font>
                 <Font size="40.0" />
             </font>
         </TextField2TableCell>
-        <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
             <children>
                 <TextField2TableCell prefHeight="63.0" prefWidth="771.0" text="Room Location" textFill="#1d3d94">
                     <font>
@@ -114,5 +117,87 @@
               </MFXButton>
             </children>
         </VBox>
+      <VBox alignment="TOP_CENTER" minHeight="-Infinity" prefHeight="870.0" prefWidth="240.0" style="-fx-background-color: #122E59;" GridPane.rowSpan="4" GridPane.valignment="TOP">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/bwlogo.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </ImageView>
+            <MFXButton fx:id="navigationbutton" alignment="TOP_LEFT" prefWidth="200.0" style="-fx-background-color: #122E59;" text="Navigation" textFill="WHITE">
+               <font>
+                  <Font name="Open Sans Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" right="30.0" />
+               </VBox.margin>
+            </MFXButton>
+            <MFXButton fx:id="navigationbutton1" alignment="TOP_LEFT" prefWidth="200.0" style="-fx-background-color: #122E59;" text="Signage" textFill="WHITE">
+               <font>
+                  <Font name="Open Sans Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" right="30.0" />
+               </VBox.margin>
+            </MFXButton>
+            <MFXButton fx:id="mealbutton" alignment="TOP_LEFT" prefWidth="200.0" style="-fx-background-color: #122E59;" text="Meal Delivery" textFill="WHITE">
+               <font>
+                  <Font name="Open Sans Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" right="30.0" />
+               </VBox.margin>
+            </MFXButton>
+            <MFXButton fx:id="roombutton" alignment="TOP_LEFT" prefWidth="200.0" style="-fx-background-color: #122E59;" text="Room Reservation" textFill="WHITE">
+               <font>
+                  <Font name="Open Sans Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" right="30.0" />
+               </VBox.margin>
+            </MFXButton>
+            <MFXButton fx:id="flowerbutton" alignment="TOP_LEFT" prefWidth="200.0" style="-fx-background-color: #122E59;" text="Flower Delivery" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Open Sans Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" right="30.0" />
+               </VBox.margin>
+            </MFXButton>
+            <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            <ImageView fx:id="backicon" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/backicon.png" />
+               </image>
+               <VBox.margin>
+                  <Insets right="150.0" />
+               </VBox.margin>
+            </ImageView>
+            <ImageView fx:id="backicon1" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/exiticon.png" />
+               </image>
+               <VBox.margin>
+                  <Insets right="150.0" />
+               </VBox.margin>
+            </ImageView>
+            <ImageView fx:id="helpicon" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/helpicon.png" />
+               </image>
+               <VBox.margin>
+                  <Insets right="150.0" />
+               </VBox.margin>
+            </ImageView>
+         </children>
+      </VBox>
+      <ImageView fx:id="topbarlogo" fitHeight="70.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+         <image>
+            <Image url="@../images/topbarLogo.png" />
+         </image>
+      </ImageView>
     </children>
 </GridPane>
