@@ -1,22 +1,19 @@
 package edu.wpi.teamname.ServiceRequests.ConferenceRoom;
 
-import edu.wpi.teamname.DAOs.DataBaseRepository;
 import edu.wpi.teamname.DAOs.IDAO;
 import edu.wpi.teamname.DAOs.dbConnection;
-import edu.wpi.teamname.DAOs.orms.Location;
 import java.io.IOException;
 import java.sql.*;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import lombok.Getter;
 
 public class RoomRequestDAO implements IDAO<ConfRoomRequest, String> {
   protected static final String schemaName = "hospitaldb";
   protected final String roomReservationsTable = schemaName + "." + "roomReservations";
-  LinkedList<ConfRoomRequest> requests = new LinkedList<>();
+  @Getter LinkedList<ConfRoomRequest> requests = new LinkedList<>();
   dbConnection connection = dbConnection.getInstance();
   static RoomRequestDAO single_instance = null;
   private Statement statement;
@@ -81,22 +78,6 @@ public class RoomRequestDAO implements IDAO<ConfRoomRequest, String> {
     } catch (SQLException ex) {
       throw new RuntimeException(ex);
     }
-  }
-
-  public LinkedList<String> getConfRoomLocationsAlphabetically() {
-    LinkedList<String> locations = new LinkedList<>();
-    for (Location thisLocation : DataBaseRepository.getInstance().getLocationDAO().getAll()) {
-
-      Pattern pattern = Pattern.compile("Conf", Pattern.CASE_INSENSITIVE);
-      Matcher matcher = pattern.matcher(thisLocation.getLongName());
-      boolean matchFound = matcher.find();
-      if (matchFound) {
-        locations.add(thisLocation.getLongName());
-      }
-    }
-    ;
-    Collections.sort(locations);
-    return locations;
   }
 
   public boolean hasConflicts(
@@ -276,51 +257,54 @@ public class RoomRequestDAO implements IDAO<ConfRoomRequest, String> {
     return requestList;
   }
 
-  public ResultSet query(String[] columns, String whereClause, String[] whereArgs, String orderBy) {
-
-    StringBuilder queryString = new StringBuilder();
-    queryString.append("SELECT ");
-    if (columns != null) {
-      for (int i = 0; i < columns.length; i++) {
-        queryString.append(columns[i]);
-        if (i != (columns.length - 1)) {
-          queryString.append(",");
-        }
-      }
-    } else {
-      queryString.append("*");
-    }
-
-    queryString.append(" FROM ");
-    queryString.append(roomReservationsTable);
-
-    if (whereClause != null) {
-      queryString.append(" WHERE ");
-
-      if (whereClause.contains("?") && whereArgs != null && whereArgs.length > 0) {
-        for (String whereArg : whereArgs) {
-          whereClause = whereClause.replaceFirst("\\?", "'" + whereArg + "'");
-        }
-      }
-
-      queryString.append(whereClause);
-    }
-
-    if (orderBy != null) {
-      queryString.append(" ORDER BY ");
-      queryString.append(orderBy);
-    }
-
-    try {
-      return statement.executeQuery(queryString.toString());
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
-    return null;
-  }
+  //  public ResultSet query(String[] columns, String whereClause, String[] whereArgs, String
+  // orderBy) {
+  //
+  //    StringBuilder queryString = new StringBuilder();
+  //    queryString.append("SELECT ");
+  //    if (columns != null) {
+  //      for (int i = 0; i < columns.length; i++) {
+  //        queryString.append(columns[i]);
+  //        if (i != (columns.length - 1)) {
+  //          queryString.append(",");
+  //        }
+  //      }
+  //    } else {
+  //      queryString.append("*");
+  //    }
+  //
+  //    queryString.append(" FROM ");
+  //    queryString.append(roomReservationsTable);
+  //
+  //    if (whereClause != null) {
+  //      queryString.append(" WHERE ");
+  //
+  //      if (whereClause.contains("?") && whereArgs != null && whereArgs.length > 0) {
+  //        for (String whereArg : whereArgs) {
+  //          whereClause = whereClause.replaceFirst("\\?", "'" + whereArg + "'");
+  //        }
+  //      }
+  //
+  //      queryString.append(whereClause);
+  //    }
+  //
+  //    if (orderBy != null) {
+  //      queryString.append(" ORDER BY ");
+  //      queryString.append(orderBy);
+  //    }
+  //
+  //    try {
+  //      return statement.executeQuery(queryString.toString());
+  //    } catch (SQLException e) {
+  //      e.printStackTrace();
+  //    }
+  //    return null;
+  //  }
 
   @Override
-  public void delete(String target) {}
+  public void delete(String target) {
+    requests.removeIf(roomRequest -> Objects.equals(roomRequest.getEventName(), target));
+  }
 
   @Override
   public void dropTable() {}
