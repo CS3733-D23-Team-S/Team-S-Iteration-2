@@ -497,98 +497,26 @@ public class BetterMapEditorController {
   }
 
   public void initialize() {
-
-    pathfindingToHomeButton.setOnMouseClicked(event -> Navigation.navigate(Screen.HOME));
-    clearFieldsButton.setOnMouseClicked(event -> clearFields());
-
-    stackPane.setPrefSize(1200.0, 742.0);
-
+    stackPane.setPrefSize(1340.0, 810.0);
     floor = new ImageView(floor1);
-
     floor.setImage(floor1);
     stackPane.getChildren().add(floor);
     stackPane.getChildren().add(anchorPane);
     anchorPane.setBackground(Background.fill(Color.TRANSPARENT));
 
-    List<Node> temp = new ArrayList<>();
-    for (int i = 0; i < dataBase.getNodeDAO().getAll().size(); i++) {
-      if (dataBase.getNodeDAO().getAll().get(i).getFloor().equals(Floor.Floor1)) {
-        temp.add(dataBase.getNodeDAO().getAll().get(i));
-      }
-    }
+    //    List<Node> temp = new ArrayList<>();
+    //    for (int i = 0; i < dataBase.getNodeDAO().getAll().size(); i++) {
+    //      if (dataBase.getNodeDAO().getAll().get(i).getFloor().equals(Floor.Floor1)) {
+    //        temp.add(dataBase.getNodeDAO().getAll().get(i));
+    //      }
+    //    }
 
-    generateFloorNodes(temp);
+    //    generateFloorNodes(temp);
 
     mapPane.setContent(stackPane);
     mapPane.setMinScale(.0001);
 
-    final Floor[] current = {Floor.FloorL1};
-
-    floorOneBTN.setOnMouseClicked(
-        event -> {
-          toFloor(Floor.Floor1);
-          current[0] = Floor.Floor1;
-        });
-    floorTwoBTN.setOnMouseClicked(
-        event -> {
-          toFloor(Floor.Floor2);
-          current[0] = Floor.Floor2;
-        });
-    floorThreeBTN.setOnMouseClicked(
-        event -> {
-          toFloor(Floor.Floor3);
-          current[0] = Floor.Floor3;
-        });
-    floorLowerOneBTN.setOnMouseClicked(
-        event -> {
-          toFloor(Floor.FloorL1);
-          current[0] = Floor.FloorL1;
-        });
-    floorLowerTwoBTN.setOnMouseClicked(
-        event -> {
-          toFloor(Floor.FloorL2);
-          current[0] = Floor.FloorL2;
-        });
-
-    addNodeBTN.setOnMouseClicked(
-        event -> {
-          doingNode = true;
-          addNode();
-          toFloor(current[0]);
-        });
-    removeNodeBTN.setOnMouseClicked(
-        event -> {
-          doingNode = true;
-          removeNode();
-          toFloor(current[0]);
-        });
-    editNodeBTN.setOnMouseClicked(
-        event -> {
-          doingNode = true;
-          editNode();
-          toFloor(current[0]);
-        });
-
-    addLocationBTN.setOnMouseClicked(
-        event -> {
-          doingNode = false;
-          addLocation();
-          toFloor(current[0]);
-        });
-    removeLocationBTN.setOnMouseClicked(
-        event -> {
-          doingNode = false;
-          removeLocation();
-          toFloor(current[0]);
-        });
-    editLocationBTN.setOnMouseClicked(
-        event -> {
-          doingNode = false;
-          editLocation();
-          toFloor(current[0]);
-        });
-
-    theCircs = floor1Circles;
+    //    final Floor[] current = {Floor.FloorL1};
   }
 
   public void connectLocToNode() {}
