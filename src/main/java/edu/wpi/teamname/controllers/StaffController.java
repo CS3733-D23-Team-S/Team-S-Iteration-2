@@ -1,13 +1,13 @@
 package edu.wpi.teamname.controllers;
 
 import edu.wpi.teamname.Main;
-import edu.wpi.teamname.navigation.Navigation;
-import edu.wpi.teamname.navigation.Screen;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -16,9 +16,22 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import lombok.Getter;
 import net.kurobako.gesturefx.GesturePane;
 
-public class AdminController {
+class toDo {
+  @Getter public String serviceRequestType;
+  @Getter public String date;
+  @Getter public String status;
+
+  toDo(String serviceRequestType, String date, String status) {
+    this.serviceRequestType = serviceRequestType;
+    this.date = date;
+    this.status = status;
+  }
+}
+
+public class StaffController {
   //  @FXML ImageView homeIcon;
 
   @FXML MFXButton floorL2Button;
@@ -26,7 +39,6 @@ public class AdminController {
   @FXML MFXButton floor1Button;
   @FXML MFXButton floor2Button;
   @FXML MFXButton floor3Button;
-  @FXML MFXButton mapEditorButton;
   ImageView floorView;
   @FXML GesturePane mapView;
   StackPane stackpane;
@@ -42,16 +54,15 @@ public class AdminController {
 
   Image floor3 = new Image(String.valueOf(Main.class.getResource("images/03_thethirdfloor.png")));
 
-  private static final int maxCheckboxNumber = 5;
-  @FXML VBox vboxContainer;
-  @FXML CheckBox checkbox;
-  private int currentCheckboxNumber = 0;
+  @FXML TableView<toDo> toDoTable;
+  @FXML TableColumn<toDo, String> serviceRequestType = new TableColumn<>("Service Request Type");
+  @FXML TableColumn<toDo, String> date = new TableColumn<>("Date");
+  @FXML TableColumn<toDo, String> status = new TableColumn<>("Status");
 
   @FXML
   public void initialize() {
 
-    mapEditorButton.setOnMouseClicked(event -> goToMapEditorPage());
-
+    // toDoCheckbox();
     stackpane = new StackPane();
     floorView =
         new ImageView(
@@ -80,20 +91,6 @@ public class AdminController {
     //        );
   }
 
-  public void toDoCheckbox() {
-    if (currentCheckboxNumber < maxCheckboxNumber) {
-      checkbox.setOnAction(event -> removeCheckbox(checkbox));
-      vboxContainer.getChildren().add(checkbox);
-      currentCheckboxNumber++;
-    } else {
-      System.out.println("Please complete one of the above tasks!");
-    }
-  }
-
-  public void removeCheckbox(CheckBox checkbox) {
-    vboxContainer.getChildren().remove(checkbox);
-    currentCheckboxNumber--;
-  }
 
   public void changeButtonColor() {
     if (floorView.getImage().equals(floorL1)) {
@@ -181,9 +178,5 @@ public class AdminController {
     floor1Points = new ArrayList<>();
     floor2Points = new ArrayList<>();
     floor3Points = new ArrayList<>();
-  }
-
-  public void goToMapEditorPage() {
-    Navigation.navigate(Screen.BETTER_MAP_EDITOR);
   }
 }

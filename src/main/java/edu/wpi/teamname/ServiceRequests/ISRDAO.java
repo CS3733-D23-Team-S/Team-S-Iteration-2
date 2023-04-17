@@ -1,5 +1,6 @@
 package edu.wpi.teamname.ServiceRequests;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -17,6 +18,11 @@ public interface ISRDAO<T, U> {
    *     from dbConnection and then passed to the DAO
    */
   void initTable(String name);
+  LocalDate getDueDate();
+
+  String getRequestType();
+
+  String getOrderStatus();
 
   /** Drops the desired table from the database in order to help reset it if needed */
   void dropTable();

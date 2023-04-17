@@ -52,7 +52,7 @@ public class SubmittedMealRequestController implements Initializable {
   @Override
   public void initialize(URL location, ResourceBundle resources) {
 
-    backButton.setOnMouseClicked(event -> goToAdminPage());
+    backButton.setOnMouseClicked(event -> goToStaffPage());
     homeIcon.setOnMouseClicked(event -> goToHomePage());
 
     //    mealID.setPrefWidth(320.0);
@@ -81,8 +81,8 @@ public class SubmittedMealRequestController implements Initializable {
     System.out.println("i am running (controller)");
   }
 
-  public void goToAdminPage() {
-    Navigation.navigate(Screen.ADMIN_PAGE);
+  public void goToStaffPage() {
+    Navigation.navigate(Screen.STAFF_PAGE);
   }
 
   public void goToHomePage() {

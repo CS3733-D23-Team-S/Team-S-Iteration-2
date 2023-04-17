@@ -25,7 +25,7 @@ public enum Screen {
   BETTER_MAP_EDITOR("views/BetterMapEditor.fxml"),
   NODE_DETAILS("views/NodeDetails.fxml"),
   CSV_MANAGE("views/CSVPage.fxml"),
-  ADMIN_PAGE("views/AdminPage.fxml"),
+  STAFF_PAGE("views/StaffPage.fxml"),
   SUBMITTED_MEAL_REQUESTS("views/NewSubmittedMealRequests.fxml"),
   // MAP_EDITOR("views/MapEditor.fxml"),
   // CSV_MANAGE("views/CSVPage.fxml"),
