@@ -18,6 +18,7 @@ public interface ISRDAO<T, U> {
    *     from dbConnection and then passed to the DAO
    */
   void initTable(String name);
+
   LocalDate getDueDate();
 
   String getRequestType();

@@ -3,9 +3,12 @@ package edu.wpi.teamname.controllers;
 import edu.wpi.teamname.Main;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
@@ -13,7 +16,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import lombok.Getter;
@@ -32,7 +34,6 @@ class toDo {
 }
 
 public class StaffController {
-  //  @FXML ImageView homeIcon;
 
   @FXML MFXButton floorL2Button;
   @FXML MFXButton floorL1Button;
@@ -62,7 +63,20 @@ public class StaffController {
   @FXML
   public void initialize() {
 
-    // toDoCheckbox();
+    List<toDo> ToDo = new LinkedList<>();
+    ToDo.add(new toDo("Meal", "17.3.2023", "Complete"));
+    ToDo.add(new toDo("Room", "17.3.2023", "Complete"));
+    ToDo.add(new toDo("Flower", "17.3.2023", "Complete"));
+
+    serviceRequestType.setCellValueFactory(
+        (row) -> new SimpleStringProperty(row.getValue().getServiceRequestType()));
+    date.setCellValueFactory((row) -> new SimpleStringProperty(row.getValue().getDate()));
+    status.setCellValueFactory((row) -> new SimpleStringProperty(row.getValue().getStatus()));
+
+    final ObservableList<toDo> observableMealList = FXCollections.observableList(ToDo);
+    // mealRequestsTable.setItems(observableMealList);
+    toDoTable.getItems().addAll(observableMealList);
+
     stackpane = new StackPane();
     floorView =
         new ImageView(
@@ -90,7 +104,6 @@ public class StaffController {
     //        }
     //        );
   }
-
 
   public void changeButtonColor() {
     if (floorView.getImage().equals(floorL1)) {

@@ -43,27 +43,27 @@
         </HBox>
       <HBox prefHeight="45.0" prefWidth="955.0" translateX="-10.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
          <children>
-            <MFXButton fx:id="floorL2Button" prefHeight="125.0" prefWidth="125.0" style="-fx-border-radius: 2; -fx-background-color: #CAD6F8; -fx-border-color: #000000;" styleClass="Button" stylesheets="@../../../../Stylesheets/StaffPage.css" text="Floor L2" translateX="50.0">
+            <MFXButton fx:id="floorL2Button" prefHeight="130.0" prefWidth="130.0" style="-fx-border-radius: 2; -fx-background-color: #CAD6F8; -fx-border-color: #000000;" styleClass="Button" stylesheets="@../../../../Stylesheets/StaffPage.css" text="Floor L2" translateX="50.0">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
             </MFXButton>
-            <MFXButton fx:id="floorL1Button" prefHeight="125.0" prefWidth="125.0" style="-fx-border-radius: 2; -fx-background-color: #CAD6F8; -fx-border-color: #000000;" styleClass="Button" stylesheets="@../../../../Stylesheets/StaffPage.css" text="Floor L1" translateX="50.0">
+            <MFXButton fx:id="floorL1Button" prefHeight="130.0" prefWidth="130.0" style="-fx-border-radius: 2; -fx-background-color: #CAD6F8; -fx-border-color: #000000;" styleClass="Button" stylesheets="@../../../../Stylesheets/StaffPage.css" text="Floor L1" translateX="50.0">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
             </MFXButton>
-            <MFXButton fx:id="floor1Button" prefHeight="125.0" prefWidth="125.0" style="-fx-border-radius: 2; -fx-background-color: #CAD6F8; -fx-border-color: #000000;" styleClass="Button" stylesheets="@../../../../Stylesheets/StaffPage.css" text="Floor 1" translateX="50.0">
+            <MFXButton fx:id="floor1Button" prefHeight="130.0" prefWidth="130.0" style="-fx-border-radius: 2; -fx-background-color: #CAD6F8; -fx-border-color: #000000;" styleClass="Button" stylesheets="@../../../../Stylesheets/StaffPage.css" text="Floor 1" translateX="50.0">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
             </MFXButton>
-            <MFXButton fx:id="floor2Button" prefHeight="125.0" prefWidth="125.0" style="-fx-border-radius: 2; -fx-background-color: #CAD6F8; -fx-border-color: #000000;" styleClass="Button" stylesheets="@../../../../Stylesheets/StaffPage.css" text="Floor 2" translateX="50.0">
+            <MFXButton fx:id="floor2Button" prefHeight="130.0" prefWidth="130.0" style="-fx-border-radius: 2; -fx-background-color: #CAD6F8; -fx-border-color: #000000;" styleClass="Button" stylesheets="@../../../../Stylesheets/StaffPage.css" text="Floor 2" translateX="50.0">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
             </MFXButton>
-            <MFXButton fx:id="floor3Button" prefHeight="125.0" prefWidth="125.0" style="-fx-border-radius: 2; -fx-background-color: #CAD6F8; -fx-border-color: #000000;" styleClass="Button" stylesheets="@../../../../Stylesheets/StaffPage.css" text="Floor 3" translateX="50.0">
+            <MFXButton fx:id="floor3Button" prefHeight="130.0" prefWidth="130.0" style="-fx-border-radius: 2; -fx-background-color: #CAD6F8; -fx-border-color: #000000;" styleClass="Button" stylesheets="@../../../../Stylesheets/StaffPage.css" text="Floor 3" translateX="50.0">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
