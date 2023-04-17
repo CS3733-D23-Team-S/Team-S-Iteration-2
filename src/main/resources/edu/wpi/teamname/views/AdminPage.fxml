@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import net.kurobako.gesturefx.GesturePane?>
 
@@ -30,11 +31,6 @@
     <children>
         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowSpan="2">
          <children>
-            <Label alignment="TOP_LEFT" contentDisplay="CENTER" text="To Do" translateX="150.0" translateY="5.0">
-               <font>
-                  <Font name="Open Sans Regular" size="36.0" />
-               </font>
-            </Label>
             <Label text="View All Service Requests" translateX="500.0">
                <font>
                   <Font size="36.0" />
@@ -42,85 +38,55 @@
             </Label>
          </children>
         </HBox>
-      <HBox prefHeight="45.0" prefWidth="955.0" translateX="-10.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
-         <children>
-            <MFXButton fx:id="floorL2Button" prefHeight="150.0" prefWidth="150.0" style="-fx-border-radius: 2; -fx-background-color: #CAD6F8; -fx-border-color: #000000;" styleClass="Button" stylesheets="@../../../../Stylesheets/AdminPage.css" text="Floor L2">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </MFXButton>
-            <MFXButton fx:id="floorL1Button" prefHeight="150.0" prefWidth="150.0" style="-fx-border-radius: 2; -fx-background-color: #CAD6F8; -fx-border-color: #000000;" styleClass="Button" stylesheets="@../../../../Stylesheets/AdminPage.css" text="Floor L1">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </MFXButton>
-            <MFXButton fx:id="floor1Button" prefHeight="150.0" prefWidth="150.0" style="-fx-border-radius: 2; -fx-background-color: #CAD6F8; -fx-border-color: #000000;" styleClass="Button" stylesheets="@../../../../Stylesheets/AdminPage.css" text="Floor 1">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </MFXButton>
-            <MFXButton fx:id="floor2Button" prefHeight="150.0" prefWidth="150.0" style="-fx-border-radius: 2; -fx-background-color: #CAD6F8; -fx-border-color: #000000;" styleClass="Button" stylesheets="@../../../../Stylesheets/AdminPage.css" text="Floor 2">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </MFXButton>
-            <MFXButton fx:id="floor3Button" prefHeight="150.0" prefWidth="150.0" style="-fx-border-radius: 2; -fx-background-color: #CAD6F8; -fx-border-color: #000000;" styleClass="Button" stylesheets="@../../../../Stylesheets/AdminPage.css" text="Floor 3">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </MFXButton>
-         </children>
-      </HBox>
       <GesturePane fx:id="mapView" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="645.0" prefWidth="749.0" translateX="-10.0" translateY="10.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-      <Pane maxHeight="300.0" maxWidth="300.0" minHeight="100.0" minWidth="100.0" prefHeight="500.0" prefWidth="400.0" styleClass="pane" stylesheets="@../../../../Stylesheets/AdminPage.css" translateX="-20.0" translateY="-200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
-         <children>
-            <VBox fx:id="vBoxContainer" prefHeight="303.0" prefWidth="302.0">
-               <children>
-                  <CheckBox fx:id="checkbox1" alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="300.0" stylesheets="@../../../../Stylesheets/AdminPage.css" text="Check Meal Request 1">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox fx:id="checkbox2" alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="300.0" stylesheets="@../../../../Stylesheets/AdminPage.css" text="Check Meal Request 2">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox fx:id="checkbox3" alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="300.0" styleClass="pane" stylesheets="@../../../../Stylesheets/AdminPage.css" text="Check Flower Request 1">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox fx:id="checkbox4" alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="300.0" stylesheets="@../../../../Stylesheets/AdminPage.css" text="Check Flower Request 2">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox fx:id="checkbox5" alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="300.0" stylesheets="@../../../../Stylesheets/AdminPage.css" text="Check Room Booking 1">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </CheckBox>
-               </children>
-            </VBox>
-         </children>
-      </Pane>
-      <MFXButton fx:id="mapEditorButton" contentDisplay="TOP" prefHeight="60.0" prefWidth="190.0" styleClass="MapEditorButton" stylesheets="@../../../../Stylesheets/AdminPage.css" text="Map Editor" translateX="150.0" translateY="120.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <MFXButton fx:id="mapEditorButton" contentDisplay="TOP" prefHeight="60.0" prefWidth="190.0" styleClass="MapEditorButton" stylesheets="@../../../../Stylesheets/AdminPage.css" text="Map Editor" translateX="150.0" translateY="-350.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+         <font>
+            <Font name="Open Sans Regular" size="24.0" />
+         </font>
+      </MFXButton>
+      <TabPane fx:id="submittedRequestsTabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" translateX="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="2">
+        <tabs>
+          <Tab text="Meal Requests">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="mealRequestsTable" layoutX="-1.0" prefHeight="645.0" prefWidth="645.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Room Requests">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="roomRequestsTable" layoutX="1.0" prefHeight="690.0" prefWidth="663.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <MFXButton fx:id="mealRequestsButton" prefHeight="60.0" prefWidth="223.0" text="Meal Requests" translateX="150.0" translateY="-250.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+         <font>
+            <Font name="Open Sans Regular" size="24.0" />
+         </font>
+      </MFXButton>
+      <MFXButton fx:id="roomRequestsButton" prefHeight="60.0" prefWidth="223.0" text="Room Requests" translateX="150.0" translateY="-150.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+         <font>
+            <Font name="Open Sans Regular" size="24.0" />
+         </font>
+      </MFXButton>
+      <MFXButton fx:id="flowerRequestsButton" prefHeight="60.0" prefWidth="223.0" text="Flower Requests" translateX="150.0" translateY="-50.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
          <font>
             <Font name="Open Sans Regular" size="24.0" />
          </font>
