@@ -4,7 +4,6 @@ import edu.wpi.teamname.DAOs.dbConnection;
 import edu.wpi.teamname.ServiceRequests.ISRDAO;
 import java.io.*;
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import lombok.Getter;
@@ -48,21 +47,6 @@ public class FlowerDeliveryDAOImpl implements ISRDAO<FlowerDelivery, Integer> {
       System.out.println("Could not create flowerRequest");
       e.printStackTrace();
     }
-  }
-
-  @Override
-  public LocalDate getDueDate() {
-    return null;
-  }
-
-  @Override
-  public String getRequestType() {
-    return null;
-  }
-
-  @Override
-  public String getOrderStatus() {
-    return null;
   }
 
   @Override

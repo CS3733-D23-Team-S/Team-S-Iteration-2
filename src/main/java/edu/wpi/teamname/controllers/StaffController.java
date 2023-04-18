@@ -16,7 +16,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -96,7 +95,7 @@ public class StaffController {
     timeOrdered.setCellValueFactory((row) -> new SimpleStringProperty(row.getValue().timeOrdered));
     status.setCellValueFactory((row) -> new SimpleStringProperty(row.getValue().getStatus()));
 
-    //status.setCellValueFactory(new PropertyValueFactory<>("status"));
+    // status.setCellValueFactory(new PropertyValueFactory<>("status"));
     status.setCellFactory(
         column -> {
           return new TableCell<toDo, String>() {
