@@ -1,13 +1,21 @@
 package edu.wpi.teamname;
 
-public class PathFindingTest {
+import static org.junit.jupiter.api.Assertions.*;
 
+import edu.wpi.teamname.DAOs.orms.*;
+
+public class PathFindingTest {
+  //
   //  @BeforeAll
   //  public static void init() {
-  //    UserDAOImpl.DataBaseRepository.getInstance().load();
+  //    DataBaseRepository.getInstance().load();
   //  }
-
-  //	@Test
-  //	public static void
-
+  //
+  //  PathfindingEntity PFE = new PathfindingEntity(100, 105);
+  //
+  //  @Test
+  //  public void PathFindingTest1() {
+  //    PFE.generatePath();
+  //    assertEquals(PFE.getPathEntities(), PFE.getPathEntities());
+  //  }
 }

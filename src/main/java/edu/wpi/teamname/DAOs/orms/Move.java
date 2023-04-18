@@ -20,7 +20,7 @@ public class Move implements IDataPack {
     return "Move{"
         + "nodeID = "
         + node.getNodeID()
-        + ", location = '"
+        + ", location = "
         + location.getLongName()
         + ", date = "
         + date.toString()
