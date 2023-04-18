@@ -148,7 +148,7 @@ public class NewHomeController {
   }
 
   public void goToAdminPage() {
-    Navigation.navigate(Screen.ADMIN_PAGE);
+    Navigation.navigate(Screen.STAFF_PAGE);
   }
 
   public void goToFlowerPage() {
