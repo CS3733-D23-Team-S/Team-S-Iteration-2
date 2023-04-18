@@ -5,10 +5,12 @@ import io.github.palexdev.materialfx.controls.MFXButton;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.geometry.Point2D;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
@@ -18,6 +20,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 import lombok.Getter;
 import net.kurobako.gesturefx.GesturePane;
 
@@ -99,10 +102,13 @@ public class StaffController {
 
     mapView.setMinScale(0.005);
     mapView.setScrollBarPolicy(GesturePane.ScrollBarPolicy.NEVER);
-    //    Platform.runLater({
-    //          mapView.zoomTo(0.01, new Point2D(2500, 1750))
-    //        }
-    //        );
+    Platform.runLater(
+        new Runnable() {
+          @Override
+          public void run() {
+            mapView.zoomTo(0.01, new Point2D(2500, 1750));
+          }
+        });
   }
 
   public void changeButtonColor() {

@@ -2,10 +2,6 @@
     -fx-background-color: #CAD6F8;
     -fx-border-radius: 2;
     -fx-border-color: #000000;
-}
-
-.check-box {
-    -fx-border-color: #D9D9D9;
 
 }
 
@@ -23,6 +19,16 @@
 /*}*/
 
 #serviceDeliveryType {
-    -fx-alignment: CENTER;
-    -fx-font-size: 24;
+    -fx-alignment: LEFT;
+    /*-fx-font-size: 18;*/
+}
+
+#date {
+    -fx-alignment: LEFT;
+    /*-fx-font-size: 18;*/
+}
+
+#status {
+    -fx-alignment: LEFT;
+    /*-fx-font-size: 18;*/
 }
