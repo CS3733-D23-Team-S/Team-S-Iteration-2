@@ -29,19 +29,19 @@ public class FlowerDeliveryDAOImpl implements ISRDAO<FlowerDelivery, Integer> {
               + name
               + " "
               + "(deliveryID int UNIQUE PRIMARY KEY,"
-              + "cart Varchar(60000),"
+              + "cart Varchar(400),"
               + "orderDate Date,"
               + "orderTime Time,"
-              + "room Varchar(60000),"
-              + "orderedBy Varchar(60000),"
-              + "assignedTo Varchar(60000),"
-              + "orderStatus Varchar(60000),"
-              + "cost DOUBLE PRECISION)";
+              + "room Varchar(400),"
+              + "orderedBy Varchar(400),"
+              + "assignedTo Varchar(400),"
+              + "orderStatus Varchar(1000),"
+              + "cost DOUBLE PRECISION,"
+              + "notes Varchar(100))";
 
       st.execute(flowerRequestsTableConstruct);
 
       // Move to hashmap requests
-
     } catch (SQLException e) {
       System.out.println(e.getMessage());
       System.out.println(e.getSQLState());
@@ -91,10 +91,11 @@ public class FlowerDeliveryDAOImpl implements ISRDAO<FlowerDelivery, Integer> {
         String assignedTo = data.getString("assignedTo");
         String orderStatus = data.getString("orderStatus");
         double cost = data.getDouble("cost");
+        String notes = data.getString("notes");
 
         FlowerDelivery fd =
             new FlowerDelivery(
-                ID, cart, date, time, room, orderedBy, assignedTo, orderStatus, cost);
+                ID, cart, date, time, room, orderedBy, assignedTo, orderStatus, cost, notes);
         requests.put(ID, fd);
       }
     } catch (SQLException e) {
@@ -207,7 +208,7 @@ public class FlowerDeliveryDAOImpl implements ISRDAO<FlowerDelivery, Integer> {
 
   @Override
   public void add(FlowerDelivery request) {
-    System.out.println("Here in add");
+
     requests.put(request.getID(), request);
     try {
       PreparedStatement preparedStatement =
@@ -216,8 +217,8 @@ public class FlowerDeliveryDAOImpl implements ISRDAO<FlowerDelivery, Integer> {
               .prepareStatement(
                   "INSERT INTO "
                       + name
-                      + " (deliveryID, cart, orderDate, orderTime, room, orderedBy, assignedTo, orderStatus, cost)"
-                      + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                      + " (deliveryID, cart, orderDate, orderTime, room, orderedBy, assignedTo, orderStatus, cost, notes)"
+                      + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
       preparedStatement.setInt(1, request.getID());
       preparedStatement.setString(2, request.getCart());
@@ -228,6 +229,7 @@ public class FlowerDeliveryDAOImpl implements ISRDAO<FlowerDelivery, Integer> {
       preparedStatement.setString(7, request.getAssignedTo());
       preparedStatement.setString(8, request.getOrderStatus());
       preparedStatement.setDouble(9, request.getCost());
+      preparedStatement.setString(10, request.getNotes());
 
       preparedStatement.executeUpdate();
 
