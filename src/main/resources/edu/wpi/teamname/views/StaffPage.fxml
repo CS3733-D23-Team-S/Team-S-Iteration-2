@@ -29,12 +29,12 @@
     <children>
         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowSpan="2">
          <children>
-            <Label alignment="TOP_LEFT" contentDisplay="CENTER" text="To Do" translateX="10.0" translateY="5.0">
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" text="To Do" translateX="10.0" translateY="25.0">
                <font>
                   <Font name="Open Sans Regular" size="36.0" />
                </font>
             </Label>
-            <Label text="View All Service Requests" translateX="550.0">
+            <Label text="View All Service Requests" translateX="550.0" translateY="20.0">
                <font>
                   <Font size="36.0" />
                </font>
@@ -43,7 +43,7 @@
         </HBox>
       <HBox prefHeight="45.0" prefWidth="955.0" translateX="-10.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
          <children>
-            <MFXButton fx:id="floorL2Button" prefHeight="130.0" prefWidth="130.0" style="-fx-border-radius: 2; -fx-background-color: #CAD6F8; -fx-border-color: #000000;" styleClass="Button" stylesheets="@../../../../Stylesheets/StaffPage.css" text="Floor L2" translateX="50.0">
+            <MFXButton fx:id="floorL2Button" alignment="CENTER" prefHeight="130.0" prefWidth="130.0" style="-fx-border-radius: 2; -fx-background-color: #CAD6F8; -fx-border-color: #000000;" styleClass="Button" stylesheets="@../../../../Stylesheets/StaffPage.css" text="Floor L2" translateX="50.0">
                <HBox.margin>
                   <Insets />
                </HBox.margin>

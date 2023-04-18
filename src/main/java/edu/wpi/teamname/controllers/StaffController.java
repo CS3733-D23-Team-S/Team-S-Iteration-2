@@ -7,12 +7,16 @@ import java.util.LinkedList;
 import java.util.List;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -20,19 +24,34 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.text.Text;
 import lombok.Getter;
 import net.kurobako.gesturefx.GesturePane;
 
 class toDo {
   @Getter public String serviceRequestType;
-  @Getter public String date;
+  @Getter public String timeOrdered;
   @Getter public String status;
+  private StringProperty category;
+  // private ComboBox dropComboBox;
 
-  toDo(String serviceRequestType, String date, String status) {
+  toDo(String serviceRequestType, String timeOrdered, String status, String category) {
     this.serviceRequestType = serviceRequestType;
-    this.date = date;
+    this.timeOrdered = timeOrdered;
     this.status = status;
+    this.category = new SimpleStringProperty(category);
+    // this.dropComboBox = new ComboBox<>();
+  }
+
+  public String getCategory() {
+    return category.get();
+  }
+
+  public void setCategory(String category) {
+    this.category.set(category);
+  }
+
+  public StringProperty categoryProperty() {
+    return category;
   }
 }
 
@@ -59,22 +78,53 @@ public class StaffController {
   Image floor3 = new Image(String.valueOf(Main.class.getResource("images/03_thethirdfloor.png")));
 
   @FXML TableView<toDo> toDoTable;
+  public ObservableList<toDo> data = FXCollections.observableArrayList();
   @FXML TableColumn<toDo, String> serviceRequestType = new TableColumn<>("Service Request Type");
-  @FXML TableColumn<toDo, String> date = new TableColumn<>("Date");
+  @FXML TableColumn<toDo, String> timeOrdered = new TableColumn<>("Time Ordered");
   @FXML TableColumn<toDo, String> status = new TableColumn<>("Status");
 
   @FXML
   public void initialize() {
 
     List<toDo> ToDo = new LinkedList<>();
-    ToDo.add(new toDo("Meal", "17.3.2023", "Complete"));
-    ToDo.add(new toDo("Room", "17.3.2023", "Complete"));
-    ToDo.add(new toDo("Flower", "17.3.2023", "Complete"));
+    ToDo.add(new toDo("Meal", "17.3.2023", "Complete", " "));
+    ToDo.add(new toDo("Room", "17.3.2023", "Complete", " "));
+    ToDo.add(new toDo("Flower", "17.3.2023", "Complete", " "));
 
     serviceRequestType.setCellValueFactory(
         (row) -> new SimpleStringProperty(row.getValue().getServiceRequestType()));
-    date.setCellValueFactory((row) -> new SimpleStringProperty(row.getValue().getDate()));
+    timeOrdered.setCellValueFactory((row) -> new SimpleStringProperty(row.getValue().timeOrdered));
     status.setCellValueFactory((row) -> new SimpleStringProperty(row.getValue().getStatus()));
+
+    status.setCellValueFactory(new PropertyValueFactory<>("status"));
+    status.setCellFactory(
+        column -> {
+          return new TableCell<toDo, String>() {
+            private final ComboBox<String> dropdown = new ComboBox<>();
+
+            {
+              dropdown.getItems().addAll("Recieved", "On the way!", "Yet to start");
+              dropdown.setOnAction(
+                  event -> {
+                    toDo item = getTableView().getItems().get(getIndex());
+                    item.setCategory(dropdown.getSelectionModel().getSelectedItem());
+                    System.out.println(
+                        "Selected:" + dropdown.getSelectionModel().getSelectedItem());
+                  });
+            }
+
+            @Override
+            protected void updateItem(String item, boolean empty) {
+              super.updateItem(item, empty);
+              if (empty) {
+                setGraphic(null);
+              } else {
+                dropdown.getSelectionModel().select(item);
+                setGraphic(dropdown);
+              }
+            }
+          };
+        });
 
     final ObservableList<toDo> observableMealList = FXCollections.observableList(ToDo);
     // mealRequestsTable.setItems(observableMealList);
