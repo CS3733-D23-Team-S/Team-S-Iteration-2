@@ -67,7 +67,7 @@ public class RootController {
             System.out.println("Going to Staff page");
             Navigation.navigate(Screen.ADMIN_PAGE);
           }
-          Navigation.navigate(Screen.ADMIN_PAGE);
+          // Navigation.navigate(Screen.ADMIN_PAGE);
           event.consume();
         });
     userIcon.addEventHandler(
