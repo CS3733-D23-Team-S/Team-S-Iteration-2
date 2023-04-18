@@ -31,7 +31,7 @@
     <children>
         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowSpan="2">
          <children>
-            <Label text="View All Service Requests" translateX="650.0" translateY="-25.0">
+            <Label text="View All Service Requests" translateX="550.0" translateY="-25.0">
                <font>
                   <Font size="36.0" />
                </font>
