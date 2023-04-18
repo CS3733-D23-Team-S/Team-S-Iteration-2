@@ -1,49 +1,60 @@
 package edu.wpi.teamname.controllers;
 
-import edu.wpi.teamname.Main;
+import edu.wpi.teamname.DAOs.DataBaseRepository;
+import edu.wpi.teamname.ServiceRequests.ConferenceRoom.ConfRoomRequest;
+import edu.wpi.teamname.ServiceRequests.ConferenceRoom.RoomRequestDAO;
+import edu.wpi.teamname.ServiceRequests.ConferenceRoom.Status;
+import edu.wpi.teamname.ServiceRequests.FoodService.Food;
+import edu.wpi.teamname.ServiceRequests.FoodService.FoodDelivery;
+import edu.wpi.teamname.ServiceRequests.FoodService.FoodDeliveryDAOImp;
+import edu.wpi.teamname.ServiceRequests.flowers.FlowerDelivery;
 import edu.wpi.teamname.navigation.Navigation;
 import edu.wpi.teamname.navigation.Screen;
 import io.github.palexdev.materialfx.controls.MFXButton;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import java.sql.Time;
+import java.util.Date;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Circle;
-import lombok.Getter;
-import net.kurobako.gesturefx.GesturePane;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-class MealRequest1 {
-  @Getter public String mealID1;
+// class MealRequest1 {
+//  @Getter public String mealID1;
+//
+//  @Getter public String itemsOrdered1;
+//  @Getter public String timeOrdered1;
+//  @Getter public String orderer1;
+//  @Getter public String status1;
+//  private StringProperty category;
 
-  @Getter public String itemsOrdered1;
-  @Getter public String timeOrdered1;
-  @Getter public String orderer1;
-  @Getter public String status1;
-
-  MealRequest1(
-          String mealID1,
-          String orderer1,
-          String itemsOrdered1,
-          String timeOrdered1,
-          String status1) {
-    this.mealID1 = mealID1;
-    this.orderer1 = orderer1 ;
-    this.itemsOrdered1 = itemsOrdered1;
-    this.timeOrdered1 = timeOrdered1;
-    this.status1 = status1;
-  }
-
-
-}
+//  MealRequest1(
+//          String mealID1,
+//          String orderer1,
+//          String itemsOrdered1,
+//          String timeOrdered1,
+//          String status1,
+//          String category) {
+//    this.mealID1 = mealID1;
+//    this.orderer1 = orderer1 ;
+//    this.itemsOrdered1 = itemsOrdered1;
+//    this.timeOrdered1 = timeOrdered1;
+//    this.status1 = status1;
+//    this.category = new SimpleStringProperty(category);
+//  }
+//  public String getCategory() {
+//    return category.get();
+//  }
+//
+//  public void setCategory(String category) {
+//    this.category.set(category);
+//  }
+//
+//  public StringProperty categoryProperty() {
+//    return category;
+//  }
+//
+//
+// }
 
 public class AdminController {
   //  @FXML ImageView homeIcon;
@@ -53,69 +64,226 @@ public class AdminController {
   @FXML MFXButton roomRequestsButton;
   @FXML MFXButton flowerRequestsButton;
 
-  @FXML TableView<MealRequest> toDoTable;
-  public ObservableList<MealRequest> data = FXCollections.observableArrayList();
-  @FXML
-  TableColumn<MealRequest, String> deliveryID1 = new TableColumn<>("Service Request Type");
-  @FXML TableColumn<MealRequest, String> itemsOrdered1 = new TableColumn<>("Items Ordered");
-  @FXML TableColumn<MealRequest, String> timeOrdered1 = new TableColumn<>("Time Ordered");
-  @FXML TableColumn<MealRequest, String> orderer1 = new TableColumn<>("Orderer");
-  @FXML TableColumn<MealRequest, String> status1 = new TableColumn<>("Status");
+  @FXML TableView mrt;
 
+  @FXML TableView flowerRequestsTable;
+  @FXML TableView roomRequestsTable;
+
+  @FXML private DataBaseRepository dbr = DataBaseRepository.getInstance();
+
+  // public ObservableList<MealRequest> data = FXCollections.observableArrayList();
+  //  @FXML
+  //  TableColumn<MealRequest1, String> mealID1 = new TableColumn<>("Service Request Type");
+  //  @FXML TableColumn<MealRequest1, String> itemsOrdered1 = new TableColumn<>("Items Ordered");
+  //  @FXML TableColumn<MealRequest1, String> timeOrdered1 = new TableColumn<>("Time Ordered");
+  //  @FXML TableColumn<MealRequest1, String> orderer1 = new TableColumn<>("Orderer");
+  //  @FXML TableColumn<MealRequest1, String> status1 = new TableColumn<>("Status");
+
+  FoodDeliveryDAOImp repo = DataBaseRepository.getInstance().getFoodDeliveryDAO();
+  RoomRequestDAO repo1 = DataBaseRepository.getInstance().getRoomRequestDAO();
+  //  DataBaseRepository dbr = DataBaseRepository.getInstance();
 
   @FXML
   public void initialize() {
-
-    List<MealRequest> ToDo = new LinkedList<>();
-    ToDo.add(new MealRequest("Meal", "17.3.2023", "Complete", " ",));
-    ToDo.add(new MealRequest("Room", "17.3.2023", "Complete", " ",));
-    ToDo.add(new MealRequest("Flower", "17.3.2023", "Complete", " ",));
-
-//    timeOrdered1.setCellValueFactory(
-//            (row) -> new SimpleStringProperty(row.getValue().get()));
-//    timeOrdered.setCellValueFactory((row) -> new SimpleStringProperty(row.getValue().timeOrdered));
-//    status.setCellValueFactory((row) -> new SimpleStringProperty(row.getValue().getStatus()));
-//
-//    status.setCellValueFactory(new PropertyValueFactory<>("status"));
-//    status.setCellFactory(
-//            column -> {
-//              return new TableCell<toDo, String>() {
-//                private final ComboBox<String> dropdown = new ComboBox<>();
-//
-//                {
-//                  dropdown.getItems().addAll("Recieved", "On the way!", "Yet to start");
-//                  dropdown.setOnAction(
-//                          event -> {
-//                            toDo item = getTableView().getItems().get(getIndex());
-//                            item.setCategory(dropdown.getSelectionModel().getSelectedItem());
-//                            System.out.println(
-//                                    "Selected:" + dropdown.getSelectionModel().getSelectedItem());
-//                          });
-//                }
-//
-//                @Override
-//                protected void updateItem(String item, boolean empty) {
-//                  super.updateItem(item, empty);
-//                  if (empty) {
-//                    setGraphic(null);
-//                  } else {
-//                    dropdown.getSelectionModel().select(item);
-//                    setGraphic(dropdown);
-//                  }
-//                }
-//              };
-//            });
-//
-//    final ObservableList<toDo> observableMealList = FXCollections.observableList(ToDo);
-//    // mealRequestsTable.setItems(observableMealList);
-//    toDoTable.getItems().addAll(observableMealList)
-
     mapEditorButton.setOnMouseClicked(event -> goToMapEditorPage());
-    mealRequestsButton.setOnMouseClicked(event -> goToMealRequestsSubmittedPage());
-    roomRequestsButton.setOnMouseClicked(event -> goToRoomRequestsSubmittedPage());
-    flowerRequestsButton.setOnMouseClicked(event -> goToFlowerRequestsSubmittedPage());
+    //    List<MealRequest1> ToDo = new LinkedList<>();
+    //    ToDo.add(new MealRequest1("Meal", "Person1", "Rice", "time1",""," "));
+    //    ToDo.add(new MealRequest1("Room", "Person2", "Octopus", "time2", "", ""));
+    //    ToDo.add(new MealRequest1("Flower", "Person3", "Dodo", "time3","", ""));
+    //
+    //    timeOrdered1.setCellValueFactory(
+    //            (row) -> new SimpleStringProperty(row.getValue().getTimeOrdered1()));
+    //    status1.setCellValueFactory((row) -> new
+    // SimpleStringProperty(row.getValue().getStatus1()));
+    //    itemsOrdered1.setCellValueFactory((row) -> new
+    // SimpleStringProperty(row.getValue().getItemsOrdered1()));
+    //    orderer1.setCellValueFactory((row) -> new
+    // SimpleStringProperty(row.getValue().getOrderer1()));
+    //    mealID1.setCellValueFactory((row) -> new
+    // SimpleStringProperty(row.getValue().getOrderer1()));
+
+    TableColumn<Food, String> column1 = new TableColumn<>("RequestID");
+    column1.setCellValueFactory(new PropertyValueFactory<>("deliveryID"));
+
+    TableColumn<Food, String> column2 = new TableColumn<>("Cart");
+    column2.setCellValueFactory(new PropertyValueFactory<>("cart"));
+
+    TableColumn<Food, String> column3 = new TableColumn<>("Request Date");
+    column3.setCellValueFactory(new PropertyValueFactory<>("date"));
+
+    TableColumn<Food, String> column4 = new TableColumn<>("Request Time");
+    column4.setCellValueFactory(new PropertyValueFactory<>("time"));
+
+    TableColumn<Food, String> column5 = new TableColumn<>("Location");
+    column5.setCellValueFactory(new PropertyValueFactory<>("location"));
+
+    TableColumn<Food, String> column6 = new TableColumn<>("Orderer");
+    column6.setCellValueFactory(new PropertyValueFactory<>("orderer"));
+
+    TableColumn<Food, String> column7 = new TableColumn<>("Assigned To");
+    column7.setCellValueFactory(new PropertyValueFactory<>("assignedTo"));
+
+    TableColumn<Food, String> column8 = new TableColumn<>("Status");
+    column8.setCellValueFactory(new PropertyValueFactory<>("orderStatus"));
+
+    TableColumn<Food, String> column9 = new TableColumn<>("Cost");
+    column9.setCellValueFactory(new PropertyValueFactory<>("cost"));
+
+    TableColumn<Food, String> column10 = new TableColumn<>("Notes");
+    column10.setCellValueFactory(new PropertyValueFactory<>("notes"));
+
+    mrt.getColumns().add(column1);
+    mrt.getColumns().add(column2);
+    mrt.getColumns().add(column3);
+    mrt.getColumns().add(column4);
+    mrt.getColumns().add(column5);
+    mrt.getColumns().add(column6);
+    mrt.getColumns().add(column7);
+    mrt.getColumns().add(column8);
+    mrt.getColumns().add(column9);
+    mrt.getColumns().add(column10);
+
+    for (FoodDelivery order : repo.getAll()) {
+      mrt.getItems().add(order);
+    }
+
+    TableColumn<FlowerDelivery, Integer> column11 = new TableColumn<>("DeliveryID");
+    column1.setCellValueFactory(new PropertyValueFactory<>("deliveryid"));
+
+    TableColumn<FlowerDelivery, String> column12 = new TableColumn<>("Cart");
+    column2.setCellValueFactory(new PropertyValueFactory<>("cart"));
+    //
+    TableColumn<FlowerDelivery, Date> column13 = new TableColumn<>("Order Date");
+    column3.setCellValueFactory(new PropertyValueFactory<>("orderdate"));
+    //
+    TableColumn<FlowerDelivery, Time> column14 = new TableColumn<>("Order Time");
+    column4.setCellValueFactory(new PropertyValueFactory<>("ordertime"));
+    //
+    TableColumn<FlowerDelivery, String> column15 = new TableColumn<>("Room");
+    column5.setCellValueFactory(new PropertyValueFactory<>("room"));
+    //
+    TableColumn<FlowerDelivery, String> column16 = new TableColumn<>("Ordered By");
+    column6.setCellValueFactory(new PropertyValueFactory<>("orderedby"));
+    //
+    TableColumn<FlowerDelivery, String> column17 = new TableColumn<>("Assigned Employee");
+    column7.setCellValueFactory(new PropertyValueFactory<>("assignedto"));
+    //
+    TableColumn<FlowerDelivery, Status> column18 = new TableColumn<>("Order Status");
+    column8.setCellValueFactory(new PropertyValueFactory<>("orderstatus"));
+    //
+    TableColumn<FlowerDelivery, Double> column19 = new TableColumn<>("Cost");
+    column9.setCellValueFactory(new PropertyValueFactory<>("cost"));
+    //
+    flowerRequestsTable.getColumns().add(column11);
+    flowerRequestsTable.getColumns().add(column12);
+    flowerRequestsTable.getColumns().add(column13);
+    flowerRequestsTable.getColumns().add(column14);
+    flowerRequestsTable.getColumns().add(column15);
+    flowerRequestsTable.getColumns().add(column16);
+    flowerRequestsTable.getColumns().add(column17);
+    flowerRequestsTable.getColumns().add(column18);
+    flowerRequestsTable.getColumns().add(column19);
+    //
+    for (FlowerDelivery order : dbr.getFlowerDeliveryDAO().getAll()) {
+      flowerRequestsTable.getItems().add(order);
+    }
   }
 
+
+
+
+//  TableColumn<ConfRoomRequest, String> column21 = new TableColumn<>("Date Ordered");
+//    column21.setCellValueFactory(new PropertyValueFactory<>("dateOrdered"));
+//
+//  TableColumn<ConfRoomRequest, String> column2 = new TableColumn<>("Event Date");
+//    column2.setCellValueFactory(new PropertyValueFactory<>("eventDate"));
+//
+//  TableColumn<ConfRoomRequest, String> column3 = new TableColumn<>("Start Time");
+//    column3.setCellValueFactory(new PropertyValueFactory<>("startTime"));
+//
+//  TableColumn<ConfRoomRequest, String> column4 = new TableColumn<>("End Time");
+//    column4.setCellValueFactory(new PropertyValueFactory<>("EndTime"));
+//
+//  TableColumn<ConfRoomRequest, String> column5 = new TableColumn<>("Room");
+//    column5.setCellValueFactory(new PropertyValueFactory<>("room"));
+//
+//  TableColumn<ConfRoomRequest, String> column6 = new TableColumn<>("Reserved By");
+//    column6.setCellValueFactory(new PropertyValueFactory<>("reservedBy"));
+//
+//  TableColumn<ConfRoomRequest, String> column7 = new TableColumn<>("Event Name");
+//    column7.setCellValueFactory(new PropertyValueFactory<>("eventName"));
+//
+//  TableColumn<ConfRoomRequest, String> column8 = new TableColumn<>("Event Description");
+//    column8.setCellValueFactory(new PropertyValueFactory<>("eventDescription"));
+//
+//  TableColumn<ConfRoomRequest, String> column9 = new TableColumn<>("Assigned To");
+//    column9.setCellValueFactory(new PropertyValueFactory<>("assignedTo"));
+//
+//  TableColumn<ConfRoomRequest, String> column10 = new TableColumn<>("Order Status");
+//    column10.setCellValueFactory(new PropertyValueFactory<>("orderStatus"));
+//
+//  TableColumn<ConfRoomRequest, String> column11 = new TableColumn<>("Notes");
+//    column11.setCellValueFactory(new PropertyValueFactory<>("notes"));
+//
+//    submittedRoomRequestsTable.getColumns().add(column1);
+//    submittedRoomRequestsTable.getColumns().add(column2);
+//    submittedRoomRequestsTable.getColumns().add(column3);
+//    submittedRoomRequestsTable.getColumns().add(column4);
+//    submittedRoomRequestsTable.getColumns().add(column5);
+//    submittedRoomRequestsTable.getColumns().add(column6);
+//    submittedRoomRequestsTable.getColumns().add(column7);
+//    submittedRoomRequestsTable.getColumns().add(column8);
+//    submittedRoomRequestsTable.getColumns().add(column9);
+//    submittedRoomRequestsTable.getColumns().add(column10);
+//    submittedRoomRequestsTable.getColumns().add(column11);
+//
+//    for (ConfRoomRequest req : repo1.getAll()) {
+//    submittedRoomRequestsTable.getItems().add(req);
+//  }
+
+
+
+
+
+
+
+  //
+  //  //
+  //  //    orderStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+  //  //    orderStatus.setCellFactory(
+  //  //  column ->
+  //  //
+  //  //  {
+  //  //    return new TableCell<Food, String>() {
+  //  //      private final ComboBox<String> dropdown = new ComboBox<>();
+  //  //
+  //  //      {
+  //  //        dropdown.getItems().addAll("Recieved", "On the way!", "Yet to start");
+  //  //        dropdown.setOnAction(
+  //  //                event -> {
+  //  //                  Food item = getTableView().getItems().get(getIndex());
+  //  //                  item.setCategory(dropdown.getSelectionModel().getSelectedItem());
+  //  //                  System.out.println(
+  //  //                          "Selected:" + dropdown.getSelectionModel().getSelectedItem());
+  //  //                });
+  //  //      }
+  //  //
+  //  //      @Override
+  //  //      protected void updateItem(String item, boolean empty) {
+  //  //        super.updateItem(item, empty);
+  //  //        if (empty) {
+  //  //          setGraphic(null);
+  //  //        } else {
+  //  //          dropdown.getSelectionModel().select(item);
+  //  //          setGraphic(dropdown);
+  //  //        }
+  //  //      }
+  //  //    };
+  //  //  });
+
+  //    final ObservableList<Food> observableMealList = FXCollections.observableList(Food);
+  //    // mealRequestsTable.setItems(observableMealList);
+  //    mealRequestTable.getItems().addAll(observableMealList)
 
   public void goToMapEditorPage() {
     Navigation.navigate(Screen.BETTER_MAP_EDITOR);

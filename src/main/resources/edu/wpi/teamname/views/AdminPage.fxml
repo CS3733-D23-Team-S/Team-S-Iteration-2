@@ -40,15 +40,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="mealRequestsTable" layoutX="-1.0" prefHeight="650.0" prefWidth="1420.0">
-                          <columns>
-                            <TableColumn fx:id="mealID1" prefWidth="150.0" text="Meal ID" />
-                            <TableColumn fx:id="itemsOrdered1" prefWidth="150.0" text="Items Ordered" />
-                              <TableColumn fx:id="timeOrdered1" prefWidth="150.0" text="Time Ordered" />
-                              <TableColumn fx:id="orderer1" prefWidth="150.0" text="Orderer" />
-                              <TableColumn fx:id="status1" prefWidth="150.0" text="Status" />
-                          </columns>
-                        </TableView>
+                        <TableView fx:id="mrt" layoutX="-1.0" prefHeight="650.0" prefWidth="1420.0" />
                      </children>
                   </AnchorPane>
             </content>
@@ -57,15 +49,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="roomRequestsTable" layoutX="1.0" prefHeight="650.0" prefWidth="1420.0">
-                          <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
-                              <TableColumn prefWidth="75.0" text="Column X" />
-                              <TableColumn prefWidth="75.0" text="Column X" />
-                              <TableColumn prefWidth="75.0" text="Column X" />
-                          </columns>
-                        </TableView>
+                        <TableView fx:id="roomRequestsTable" layoutX="1.0" prefHeight="650.0" prefWidth="1420.0" />
                      </children>
                   </AnchorPane>
             </content>
@@ -74,20 +58,12 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="flowerRequestsTable" prefHeight="650.0" prefWidth="1420.0">
-                          <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
-                              <TableColumn prefWidth="75.0" text="Column X" />
-                              <TableColumn prefWidth="75.0" text="Column X" />
-                              <TableColumn prefWidth="75.0" text="Column X" />
-                          </columns>
-                        </TableView>
+                        <TableView fx:id="flowerRequestsTable" prefHeight="650.0" prefWidth="1420.0" />
                      </children>
                   </AnchorPane>
               </content>
             </Tab>
-            <Tab text="All Requests">
+            <Tab text="Office Requests">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -106,21 +82,6 @@
             </Tab>
         </tabs>
       </TabPane>
-      <MFXButton fx:id="mealRequestsButton" prefHeight="60.0" prefWidth="223.0" text="Meal Requests" translateX="350.0" translateY="-20.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <font>
-            <Font name="Open Sans Regular" size="24.0" />
-         </font>
-      </MFXButton>
-      <MFXButton fx:id="roomRequestsButton" prefHeight="60.0" prefWidth="223.0" text="Room Requests" translateX="150.0" translateY="-20.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-         <font>
-            <Font name="Open Sans Regular" size="24.0" />
-         </font>
-      </MFXButton>
-      <MFXButton fx:id="flowerRequestsButton" prefHeight="60.0" prefWidth="223.0" text="Flower Requests" translateX="400.0" translateY="-20.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-         <font>
-            <Font name="Open Sans Regular" size="24.0" />
-         </font>
-      </MFXButton>
       <Label prefHeight="53.0" prefWidth="516.0" text="View All Service Requests" translateX="500.0" GridPane.columnIndex="1">
          <font>
             <Font size="36.0" />
