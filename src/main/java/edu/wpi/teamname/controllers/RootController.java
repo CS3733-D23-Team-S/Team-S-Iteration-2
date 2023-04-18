@@ -57,8 +57,9 @@ public class RootController {
           event.consume();
         });
 
-    // invert home onclick
 
+
+    // select homeIcon path
     homeIcon.addEventHandler(
         javafx.scene.input.MouseEvent.MOUSE_CLICKED,
         event -> {
@@ -92,4 +93,6 @@ public class RootController {
           event.consume();
         });
   }
+
+
 }
