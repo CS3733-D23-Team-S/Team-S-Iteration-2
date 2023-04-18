@@ -31,7 +31,7 @@
     <children>
         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowSpan="2">
          <children>
-            <Label text="View All Service Requests" translateX="500.0">
+            <Label text="View All Service Requests" translateX="650.0" translateY="-25.0">
                <font>
                   <Font size="36.0" />
                </font>
@@ -44,13 +44,13 @@
             <Font name="Open Sans Regular" size="24.0" />
          </font>
       </MFXButton>
-      <TabPane fx:id="submittedRequestsTabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" translateX="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="2">
+      <TabPane fx:id="submittedRequestsTabPane" prefHeight="200.0" prefWidth="200.0" styleClass="TabPane" stylesheets="@../../../../Stylesheets/AdminPage.css" tabClosingPolicy="UNAVAILABLE" translateX="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="2">
         <tabs>
           <Tab text="Meal Requests">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="mealRequestsTable" layoutX="-1.0" prefHeight="645.0" prefWidth="645.0">
+                        <TableView fx:id="mealRequestsTable" layoutX="-1.0" prefHeight="645.0" prefWidth="663.0">
                           <columns>
                             <TableColumn prefWidth="75.0" text="C1" />
                             <TableColumn prefWidth="75.0" text="C2" />
@@ -64,7 +64,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="roomRequestsTable" layoutX="1.0" prefHeight="690.0" prefWidth="663.0">
+                        <TableView fx:id="roomRequestsTable" layoutX="1.0" prefHeight="645.0" prefWidth="663.0">
                           <columns>
                             <TableColumn prefWidth="75.0" text="C1" />
                             <TableColumn prefWidth="75.0" text="C2" />
@@ -74,6 +74,34 @@
                   </AnchorPane>
             </content>
           </Tab>
+            <Tab text="Flower Requests">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView prefHeight="645.0" prefWidth="663.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="All Requests">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutY="-1.0" prefHeight="645.0" prefWidth="663.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
       <MFXButton fx:id="mealRequestsButton" prefHeight="60.0" prefWidth="223.0" text="Meal Requests" translateX="150.0" translateY="-250.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
