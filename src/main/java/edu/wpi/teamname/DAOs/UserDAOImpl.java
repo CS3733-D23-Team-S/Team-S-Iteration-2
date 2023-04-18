@@ -4,7 +4,10 @@ import edu.wpi.teamname.DAOs.orms.Floor;
 import edu.wpi.teamname.DAOs.orms.Permission;
 import edu.wpi.teamname.DAOs.orms.User;
 import java.io.*;
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.List;
 import lombok.Getter;
@@ -68,8 +71,12 @@ public class UserDAOImpl implements IDAO<User, String> {
     if (!checkIfUserExists(username)) {
       throw new Exception("User does not exist");
     } else {
-      return password.equals(listOfUsers.get(username).getPassword());
+      if (password.equals(listOfUsers.get(username).getPassword())) {
+        ActiveUser.getInstance().setCurrentUser(get(username));
+        return true;
+      }
     }
+    return false;
   }
 
   @Override
@@ -87,7 +94,9 @@ public class UserDAOImpl implements IDAO<User, String> {
               + "permission int)";
       stmt.execute(loginTableConstruct);
       User admin = new User("admin", "admin", Permission.ADMIN);
+      User staff = new User("staff", "staff", Permission.STAFF);
       listOfUsers.put("admin", admin);
+      listOfUsers.put("staff", staff);
       ResultSet checkExists =
           connection.getConnection().createStatement().executeQuery("SELECT  * FROM " + name);
       if (checkExists.next()) return;
@@ -100,6 +109,15 @@ public class UserDAOImpl implements IDAO<User, String> {
               + Permission.ADMIN.ordinal()
               + ")";
       stmt.executeUpdate(addAdmin);
+
+      String addStaff =
+          "INSERT INTO "
+              + name
+              + " (username, password, permission) VALUES "
+              + "('staff','staff',"
+              + Permission.STAFF.ordinal()
+              + ")";
+      stmt.executeUpdate(addStaff);
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -163,7 +181,7 @@ public class UserDAOImpl implements IDAO<User, String> {
 
   @Override
   public User get(String target) {
-    return null;
+    return listOfUsers.get(target);
   }
 
   @Override

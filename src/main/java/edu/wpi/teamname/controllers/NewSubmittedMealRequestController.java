@@ -60,7 +60,7 @@ public class NewSubmittedMealRequestController implements Initializable {
   @Override
   public void initialize(URL location, ResourceBundle resources) {
 
-    backIcon.setOnMouseClicked(event -> goToAdminPage());
+    backIcon.setOnMouseClicked(event -> goToStaffPage());
     signageButton.setOnMouseClicked(event -> goToSignagePage());
     navigationButton.setOnMouseClicked(event -> goToPathfindingPage());
     mealButton.setOnMouseClicked(event -> goToMealDeliveryPage());
@@ -95,8 +95,8 @@ public class NewSubmittedMealRequestController implements Initializable {
     System.out.println("i am running (controller)");
   }
 
-  public void goToAdminPage() {
-    Navigation.navigate(Screen.ADMIN_PAGE);
+  public void goToStaffPage() {
+    Navigation.navigate(Screen.STAFF_PAGE);
   }
 
   public void goToHomePage() {

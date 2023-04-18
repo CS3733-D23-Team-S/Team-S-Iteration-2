@@ -55,7 +55,7 @@ public class NewSubmittedRoomRequestController implements Initializable {
   @Override
   public void initialize(URL location, ResourceBundle resources) {
 
-    backIcon.setOnMouseClicked(event -> goToAdminPage());
+    backIcon.setOnMouseClicked(event -> goToStaffPage());
     exitIcon.setOnMouseClicked(event -> exitApplication());
     helpIcon.setOnMouseClicked(event -> goToHelpPage());
     homeIcon.setOnMouseClicked(event -> goToHomePage());
@@ -90,8 +90,8 @@ public class NewSubmittedRoomRequestController implements Initializable {
     //    }
   }
 
-  public void goToAdminPage() {
-    Navigation.navigate(Screen.ADMIN_PAGE);
+  public void goToStaffPage() {
+    Navigation.navigate(Screen.STAFF_PAGE);
   }
 
   public void goToHomePage() {

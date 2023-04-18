@@ -3,6 +3,7 @@ package edu.wpi.teamname.ServiceRequests.FoodService;
 import edu.wpi.teamname.DAOs.dbConnection;
 import edu.wpi.teamname.ServiceRequests.ISRDAO;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import lombok.Getter;
@@ -48,6 +49,21 @@ public class FoodDeliveryDAOImp implements ISRDAO<FoodDelivery, Integer> {
       System.out.println("Database creation error");
       e.printStackTrace();
     }
+  }
+
+  @Override
+  public LocalDate getDueDate() {
+    return null;
+  }
+
+  @Override
+  public String getRequestType() {
+    return null;
+  }
+
+  @Override
+  public String getOrderStatus() {
+    return null;
   }
 
   @Override
@@ -97,6 +113,11 @@ public class FoodDeliveryDAOImp implements ISRDAO<FoodDelivery, Integer> {
     }
   }
 
+  @Override
+  public FoodDelivery getRow(Integer target) {
+    return null;
+  }
+
   public void delete(Integer target) {
     try {
       PreparedStatement deleteFood =
@@ -118,7 +139,7 @@ public class FoodDeliveryDAOImp implements ISRDAO<FoodDelivery, Integer> {
     }
   }
 
-  public FoodDelivery getRow(Integer target) {
+  public FoodDelivery get(Integer target) {
     if (foodRequests.get(target) == null) {
       System.out.println("This foodRequest is not in the database, so its row cannot be printed");
       return null;

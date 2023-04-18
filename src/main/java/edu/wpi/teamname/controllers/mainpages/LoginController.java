@@ -2,13 +2,12 @@ package edu.wpi.teamname.controllers.mainpages;
 
 import static edu.wpi.teamname.navigation.Screen.*;
 
+import edu.wpi.teamname.DAOs.ActiveUser;
 import edu.wpi.teamname.DAOs.DataBaseRepository;
 import edu.wpi.teamname.navigation.Navigation;
-import edu.wpi.teamname.navigation.Screen;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import java.awt.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -27,7 +26,8 @@ public class LoginController {
   @FXML PasswordField pfPassword;
 
   @FXML private TextField tfUsername;
-  @FXML private Hyperlink newUser;
+  public ActiveUser activeUser = ActiveUser.getInstance();
+  // @FXML private Hyperlink newUser;
 
   private String errorMessage = "";
 
@@ -72,7 +72,7 @@ public class LoginController {
     toSignage.setOnMouseClicked(event -> Navigation.navigate(SIGNAGE_PAGE));
 
     loginManager = DataBaseRepository.getInstance();
-    newUser.setOnMouseClicked(event -> Navigation.launchPopUp(Screen.NEW_USER));
+    // newUser.setOnMouseClicked(event -> Navigation.launchPopUp(Screen.NEW_USER));
     //    backButton.setOnMouseClicked(event -> Navigation.navigate(Screen.WELCOME_PAGE));
 
     backIcon.setOnMouseClicked(event -> Navigation.navigate(SIGNAGE_PAGE));
@@ -80,7 +80,8 @@ public class LoginController {
         event -> {
           errorMessage = "";
           if (isfieldFilled() && isValid()) {
-            Navigation.navigate(HOME);
+            // ActiveUser.getInstance().setCurrentUser(
+            Navigation.navigate(ADMIN_PAGE);
           }
         });
   }
