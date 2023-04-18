@@ -81,7 +81,7 @@ public class AdminController {
 
   FoodDeliveryDAOImp repo = DataBaseRepository.getInstance().getFoodDeliveryDAO();
   RoomRequestDAO repo1 = DataBaseRepository.getInstance().getRoomRequestDAO();
-  //  DataBaseRepository dbr = DataBaseRepository.getInstance();
+
 
   @FXML
   public void initialize() {
@@ -189,63 +189,54 @@ public class AdminController {
     }
   }
 
-
-
-
-//  TableColumn<ConfRoomRequest, String> column21 = new TableColumn<>("Date Ordered");
-//    column21.setCellValueFactory(new PropertyValueFactory<>("dateOrdered"));
+//    TableColumn<ConfRoomRequest, String> column21 = new TableColumn<>("Date Ordered");
+//      column21.setCellValueFactory(new PropertyValueFactory<>("dateOrdered"));
 //
-//  TableColumn<ConfRoomRequest, String> column2 = new TableColumn<>("Event Date");
-//    column2.setCellValueFactory(new PropertyValueFactory<>("eventDate"));
+//    TableColumn<ConfRoomRequest, String> column22 = new TableColumn<>("Event Date");
+//      column22.setCellValueFactory(new PropertyValueFactory<>("eventDate"));
 //
-//  TableColumn<ConfRoomRequest, String> column3 = new TableColumn<>("Start Time");
-//    column3.setCellValueFactory(new PropertyValueFactory<>("startTime"));
+//    TableColumn<ConfRoomRequest, String> column23 = new TableColumn<>("Start Time");
+//      column23.setCellValueFactory(new PropertyValueFactory<>("startTime"));
 //
-//  TableColumn<ConfRoomRequest, String> column4 = new TableColumn<>("End Time");
-//    column4.setCellValueFactory(new PropertyValueFactory<>("EndTime"));
+//    TableColumn<ConfRoomRequest, String> column24 = new TableColumn<>("End Time");
+//      column24.setCellValueFactory(new PropertyValueFactory<>("EndTime"));
 //
-//  TableColumn<ConfRoomRequest, String> column5 = new TableColumn<>("Room");
-//    column5.setCellValueFactory(new PropertyValueFactory<>("room"));
+//    TableColumn<ConfRoomRequest, String> column25 = new TableColumn<>("Room");
+//      column25.setCellValueFactory(new PropertyValueFactory<>("room"));
 //
-//  TableColumn<ConfRoomRequest, String> column6 = new TableColumn<>("Reserved By");
-//    column6.setCellValueFactory(new PropertyValueFactory<>("reservedBy"));
+//    TableColumn<ConfRoomRequest, String> column26 = new TableColumn<>("Reserved By");
+//      column26.setCellValueFactory(new PropertyValueFactory<>("reservedBy"));
 //
-//  TableColumn<ConfRoomRequest, String> column7 = new TableColumn<>("Event Name");
-//    column7.setCellValueFactory(new PropertyValueFactory<>("eventName"));
+//    TableColumn<ConfRoomRequest, String> column27 = new TableColumn<>("Event Name");
+//      column27.setCellValueFactory(new PropertyValueFactory<>("eventName"));
 //
-//  TableColumn<ConfRoomRequest, String> column8 = new TableColumn<>("Event Description");
-//    column8.setCellValueFactory(new PropertyValueFactory<>("eventDescription"));
+//    TableColumn<ConfRoomRequest, String> column28 = new TableColumn<>("Event Description");
+//      column28.setCellValueFactory(new PropertyValueFactory<>("eventDescription"));
 //
-//  TableColumn<ConfRoomRequest, String> column9 = new TableColumn<>("Assigned To");
-//    column9.setCellValueFactory(new PropertyValueFactory<>("assignedTo"));
+//    TableColumn<ConfRoomRequest, String> column29 = new TableColumn<>("Assigned To");
+//      column29.setCellValueFactory(new PropertyValueFactory<>("assignedTo"));
 //
-//  TableColumn<ConfRoomRequest, String> column10 = new TableColumn<>("Order Status");
-//    column10.setCellValueFactory(new PropertyValueFactory<>("orderStatus"));
+//    TableColumn<ConfRoomRequest, String> column30 = new TableColumn<>("Order Status");
+//      column30.setCellValueFactory(new PropertyValueFactory<>("orderStatus"));
 //
-//  TableColumn<ConfRoomRequest, String> column11 = new TableColumn<>("Notes");
-//    column11.setCellValueFactory(new PropertyValueFactory<>("notes"));
+//    TableColumn<ConfRoomRequest, String> column31 = new TableColumn<>("Notes");
+//      column31.setCellValueFactory(new PropertyValueFactory<>("notes"));
 //
-//    submittedRoomRequestsTable.getColumns().add(column1);
-//    submittedRoomRequestsTable.getColumns().add(column2);
-//    submittedRoomRequestsTable.getColumns().add(column3);
-//    submittedRoomRequestsTable.getColumns().add(column4);
-//    submittedRoomRequestsTable.getColumns().add(column5);
-//    submittedRoomRequestsTable.getColumns().add(column6);
-//    submittedRoomRequestsTable.getColumns().add(column7);
-//    submittedRoomRequestsTable.getColumns().add(column8);
-//    submittedRoomRequestsTable.getColumns().add(column9);
-//    submittedRoomRequestsTable.getColumns().add(column10);
-//    submittedRoomRequestsTable.getColumns().add(column11);
+//      roomRequestsTable.getColumns().add(column21);
+//      submittedRoomRequestsTable.getColumns().add(column22);
+//      submittedRoomRequestsTable.getColumns().add(column23);
+//      submittedRoomRequestsTable.getColumns().add(column24);
+//      submittedRoomRequestsTable.getColumns().add(column25);
+//      submittedRoomRequestsTable.getColumns().add(column26);
+//      submittedRoomRequestsTable.getColumns().add(column27);
+//      submittedRoomRequestsTable.getColumns().add(column28);
+//      submittedRoomRequestsTable.getColumns().add(column29);
+//      submittedRoomRequestsTable.getColumns().add(column30);
+//      submittedRoomRequestsTable.getColumns().add(column31);
 //
-//    for (ConfRoomRequest req : repo1.getAll()) {
-//    submittedRoomRequestsTable.getItems().add(req);
-//  }
-
-
-
-
-
-
+//      for (ConfRoomRequest req : repo1.getAll()) {
+//      roomRequestsTable.getItems().add(req);
+//    }
 
   //
   //  //
